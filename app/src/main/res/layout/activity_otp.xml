@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context="in.theindianlifter.indianlifter.OTPActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_bg">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_mobile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_bg_white"
+            android:gravity="center"
+            android:text="+91"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableEnd="@drawable/ic_speech_bubble"
+        android:drawablePadding="5dp"
+        android:drawableRight="@drawable/ic_speech_bubble"
+        android:gravity="center"
+        android:text="OTP SMS sent to +91 9872226052"
+        android:textSize="16sp" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/etOtp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:hint="OTP will be autofilled from SMS"
+        android:inputType="number"
+        android:maxLines="1"
+        android:textSize="14sp" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnConfirm"
+        android:layout_width="95dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/curved_button_bg"
+        android:text="confirm"
+        android:textColor="@android:color/white" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:hint="RESEND OTP"
+        android:inputType="number"
+        android:textStyle="bold" />
+</LinearLayout>

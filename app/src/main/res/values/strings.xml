@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">indianlifter</string>
-    <string name="tnc_text">By proceeding,you agree to our Terms and conditions</string>
-    <string name="enter_mobile_text">Sign up with Mobile No.</string>
+    <string name="tnc_text">By proceeding, you agree to our Terms &amp; conditions</string>
+    <string name="enter_mobile_text">Sign up with your mobile number</string>
     <string name="sign_up_text">Sign Up</string>
+    <string name="hint_enter_contact_number">Enter contact number</string>
+    <string name="continuee">Continue</string>
+    <string name="let_s_get_started">Let\'s get started</string>
+    <string name="for_the_best_outcomes_n_please_complete_your_profile">For the best outcomes\nPlease complete your profile</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="city">City</string>
+    <string name="have_a_referral_code">Have a Referral Code ?</string>
+    <string name="submit">Submit</string>
+    <string name="add_photo">Add Photo</string>
 </resources>

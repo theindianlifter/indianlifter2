@@ -3,7 +3,7 @@ package in.theindianlifter.indianlifter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class InfoActivity extends AppCompatActivity {
+public class InfoActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
