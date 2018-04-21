@@ -14,12 +14,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
-        android:text="TextView"
-        android:textSize="12sp"
+        android:text="@string/enter_mobile_text"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:text="Sign up with Mobile No." />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:text="@string/enter_mobile_text" />
 
     <EditText
         android:id="@+id/etPhone"
@@ -81,9 +81,27 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="Signup"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        android:background="@color/colorPrimary"
+        android:text="@string/sign_up_text"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+
+    <TextView
+        android:id="@+id/tvTncText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/tnc_text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignup"
+        tools:text="@string/tnc_text" />
+
 </android.support.constraint.ConstraintLayout>
