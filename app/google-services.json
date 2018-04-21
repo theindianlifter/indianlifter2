@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "160489482558",
+    "firebase_url": "https://indianlifter-3bc49.firebaseio.com",
+    "project_id": "indianlifter-3bc49",
+    "storage_bucket": "indianlifter-3bc49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160489482558:android:19154ef88bfcfd31",
+        "android_client_info": {
+          "package_name": "in.theindianlifter.indianlifter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160489482558-a4jcks87hg16m9etc4eucgfl4v15lvt1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.theindianlifter.indianlifter",
+            "certificate_hash": "828a44310feee2d273d3f56d51998622e74fc63d"
+          }
+        },
+        {
+          "client_id": "160489482558-kdgdqvrmja28162fddqotqs5cjt1jv37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN07UACiXXiPNSH_bHSGHrdzSqH2OpPRg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160489482558-kdgdqvrmja28162fddqotqs5cjt1jv37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
