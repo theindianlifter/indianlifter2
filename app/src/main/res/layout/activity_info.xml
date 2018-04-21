@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,7 +23,8 @@
         android:gravity="center"
         android:text="@string/for_the_best_outcomes_n_please_complete_your_profile" />
 
-    <android.support.v7.widget.AppCompatImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivPhoto"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
@@ -30,6 +32,7 @@
         android:src="@drawable/profile_placeholder" />
 
     <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvAddPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -46,21 +49,33 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/etFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/full_name" />
+            android:hint="@string/full_name"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords"
+            android:maxLines="1" />
 
         <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="@string/email" />
+            android:hint="@string/email"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:maxLines="1" />
 
         <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/etCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="@string/city" />
+            android:hint="@string/city"
+            android:imeOptions="actionDone"
+            android:inputType="textCapWords"
+            android:maxLines="1" />
 
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"

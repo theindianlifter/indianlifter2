@@ -42,13 +42,13 @@
 
     <android.support.v7.widget.AppCompatEditText
         android:id="@+id/etOtp"
-        android:layout_width="250dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:ellipsize="end"
         android:gravity="center"
-        android:hint="OTP will be autofilled from SMS"
+        android:hint="Please enter the OTP"
         android:inputType="number"
         android:maxLines="1"
         android:textSize="14sp" />

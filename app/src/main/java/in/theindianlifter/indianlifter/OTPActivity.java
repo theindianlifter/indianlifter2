@@ -1,5 +1,6 @@
 package in.theindianlifter.indianlifter;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +53,7 @@ public class OTPActivity extends BaseActivity implements View.OnClickListener {
                         if (task.isSuccessful()) {
                             FirebaseUser user = task.getResult().getUser();
                             savePhoneNumberToDatabase(user, getIntent().getStringExtra(CONTACT_NUMBER), getIntent().getStringExtra(COUNTRY_CODE));
+                            startActivity(new Intent(OTPActivity.this, InfoActivity.class));
                             // ...
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {

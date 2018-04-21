@@ -128,6 +128,7 @@ public class SignupActivity extends BaseActivity implements View.OnClickListener
                         if (task.isSuccessful()) {
                             FirebaseUser user = task.getResult().getUser();
                             savePhoneNumberToDatabase(user, contactNumber, "+91");
+                            startActivity(new Intent(SignupActivity.this, InfoActivity.class));
                             // ...
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
