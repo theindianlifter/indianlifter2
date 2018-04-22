@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#009bbf</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#178FAC</color>
     <color name="colorAccent">#009bbf</color>
     <color name="white">#FFF</color>
+    <color name="bot_message_bg">#40009bbf</color>
+    <color name="bot_tutorial_bg">#33009bbf</color>
 </resources>

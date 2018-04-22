@@ -1,13 +1,11 @@
-package in.theindianlifter.indianlifter;
+package in.theindianlifter.indianlifter.activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,12 +16,12 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import static in.theindianlifter.indianlifter.AppConstants.CONTACT_NUMBER;
-import static in.theindianlifter.indianlifter.AppConstants.COUNTRY_CODE;
-import static in.theindianlifter.indianlifter.AppConstants.VERIFICATION_ID;
+import in.theindianlifter.indianlifter.R;
+
+import static in.theindianlifter.indianlifter.constants.AppConstants.CONTACT_NUMBER;
+import static in.theindianlifter.indianlifter.constants.AppConstants.COUNTRY_CODE;
+import static in.theindianlifter.indianlifter.constants.AppConstants.VERIFICATION_ID;
 
 public class OTPActivity extends BaseActivity implements View.OnClickListener {
     private PhoneAuthCredential credential;
@@ -43,6 +41,7 @@ public class OTPActivity extends BaseActivity implements View.OnClickListener {
         etOtp = findViewById(R.id.etOtp);
         btnConfirm = findViewById(R.id.btnConfirm);
         btnConfirm.setOnClickListener(this);
+        mAuth = FirebaseAuth.getInstance();
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
@@ -51,12 +50,25 @@ public class OTPActivity extends BaseActivity implements View.OnClickListener {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            hideLoading();
                             FirebaseUser user = task.getResult().getUser();
                             savePhoneNumberToDatabase(user, getIntent().getStringExtra(CONTACT_NUMBER), getIntent().getStringExtra(COUNTRY_CODE));
                             startActivity(new Intent(OTPActivity.this, InfoActivity.class));
                             // ...
                         } else {
+                            hideLoading();
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                                showErrorMessage("Invalid Otp!",
+                                        null,
+                                        null,
+                                        "OK",
+                                        "");
+                            } else {
+                                showErrorMessage("Verification failed! Try again later.",
+                                        null,
+                                        null,
+                                        "OK",
+                                        "");
                             }
                         }
                     }
@@ -67,13 +79,35 @@ public class OTPActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnConfirm:
-                if (!TextUtils.isEmpty(etOtp.getText().toString().trim()) && isNetworkAvailable(this) && etOtp.getText().toString().length() == 6) {
-                    credential = PhoneAuthProvider.getCredential(getIntent().getStringExtra(VERIFICATION_ID), etOtp.getText().toString().trim());
-                    signInWithPhoneAuthCredential(credential);
-                }
+                validateAndInsert();
                 break;
             default:
                 break;
+        }
+    }
+
+    private void validateAndInsert() {
+        if (!TextUtils.isEmpty(etOtp.getText().toString().trim()) && etOtp.getText().toString().length() == 6) {
+            credential = PhoneAuthProvider.getCredential(getIntent().getStringExtra(VERIFICATION_ID), etOtp.getText().toString().trim());
+            signInWithPhoneAuthCredential(credential);
+            showLoading(OTPActivity.this);
+        } else if (isNetworkAvailable(this)) {
+            showErrorMessage("Please check your Internet Connection!",
+                    null,
+                    new OnPositiveButtonClick() {
+                        @Override
+                        public void onPositiveButtonClick() {
+                            validateAndInsert();
+                        }
+                    },
+                    "Retry",
+                    "");
+        } else {
+            showErrorMessage("Please enter valid otp!",
+                    null,
+                    null,
+                    "OK",
+                    "");
         }
     }
 }
